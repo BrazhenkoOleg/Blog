@@ -8,12 +8,12 @@
     <div class="container-fluid">
     <!--begin::Row-->
     <div class="row">
-        <div class="col-sm-6"><h3 class="mb-0">Редактирование категории</h3></div>
+        <div class="col-sm-6"><h3 class="mb-0">Редактирование тэга</h3></div>
         <div class="col-sm-6">
         <ol class="breadcrumb float-sm-end">
             <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Панель администратора</a></li>
-            <li class="breadcrumb-item"><a href="{{ route('admin.categories.index') }}">Категории</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Редактирование категории</li>
+            <li class="breadcrumb-item"><a href="{{ route('admin.tags.index') }}">Тэги</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Редактирование тэга</li>
         </ol>
         </div>
     </div>
@@ -29,11 +29,11 @@
     <!--begin::Row-->
     <div class="row">
         <div class="col-12">
-            <form action="{{ route('admin.categories.update', $category->id) }}" class="w-50" method="POST">
+            <form action="{{ route('admin.tags.update', $tag->id) }}" class="w-50" method="POST">
                 @csrf
                 @method('PATCH')
                 <div class="mb-3">
-                    <input type="text" name="title" class="form-control" placeholder="Название категории" value="{{ $category->title }}">
+                    <input type="text" name="title" class="form-control" placeholder="Название тэга" value="{{ $tag->title }}">
                     @error('title')
                         <div class="text-danger">Это поле необходимо для заполнения</div>
                     @enderror

@@ -8,11 +8,11 @@
     <div class="container-fluid">
     <!--begin::Row-->
     <div class="row">
-        <div class="col-sm-6"><h3 class="mb-0">Категории</h3></div>
+        <div class="col-sm-6"><h3 class="mb-0">Посты</h3></div>
         <div class="col-sm-6">
         <ol class="breadcrumb float-sm-end">
             <li class="breadcrumb-item"><a href="{{ route('admin.main.index') }}">Панель администратора</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Категории</li>
+            <li class="breadcrumb-item active" aria-current="page">Посты</li>
         </ol>
         </div>
     </div>
@@ -28,7 +28,7 @@
     <!--begin::Row-->
     <div class="row">
         <div class="col-12 mb-3">
-            <a href="{{ route('admin.categories.create') }}" class="btn btn-primary">Добавить</a>
+            <a href="{{ route('admin.posts.create') }}" class="btn btn-primary">Добавить</a>
         </div>
     </div>
     </div class="row">
@@ -42,14 +42,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($categories as $category)
+                    @foreach($posts as $post)
                         <tr>
-                            <th scope="row">{{ $category->id }}</th>
-                            <td>{{ $category->title }}</td>
-                            <td class="text-center"><a href="{{ route('admin.categories.show', $category->id) }}"><i class="fa-solid fa-eye"></i></a></td>
-                            <td class="text-center"><a href="{{ route('admin.categories.edit', $category->id) }}" class="text-success"><i class="fa-solid fa-pen-to-square"></i></a></td>
+                            <th scope="row">{{ $post->id }}</th>
+                            <td>{{ $post->title }}</td>
+                            <td class="text-center"><a href="{{ route('admin.posts.show', $post->id) }}"><i class="fa-solid fa-eye"></i></a></td>
+                            <td class="text-center"><a href="{{ route('admin.posts.edit', $post->id) }}" class="text-success"><i class="fa-solid fa-pen-to-square"></i></a></td>
                             <td class="text-center">
-                                <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST">
+                                <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="border-0 bg-transparent">

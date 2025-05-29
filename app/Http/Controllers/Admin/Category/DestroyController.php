@@ -10,7 +10,6 @@ class DestroyController extends Controller
 {
     public function __invoke(Category $category) {
         $category->delete();
-        session()->flash('success', 'Категория успешно удалена.');
         return redirect()->route('admin.categories.index');
     }
 }
