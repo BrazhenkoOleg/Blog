@@ -67,10 +67,12 @@
                         <th scope="row">Содержание</td>
                         <td>{!! $post->content !!}</td>
                     </tr>
+                    @isset($post->category)
                     <tr>
                         <th scope="row">Категория</td>
                         <td> {{ $post->category->title }}</td>
                     </tr>
+                    @endisset
                     @if($post->tags->isNotEmpty())
                     <tr>
                         <th scope="row">Тэги</th>
