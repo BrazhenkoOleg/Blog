@@ -6,6 +6,18 @@
             <!--begin::Sidebar Menu-->
             <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
               <li class="nav-item">
+                <a href="{{ route('admin.main.index') }}" class="nav-link">
+                  <i class="nav-icon fa-solid fa-house"></i>
+                  <p>Главная</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('admin.users.index') }}" class="nav-link">
+                  <i class="nav-icon fa-solid fa-users"></i>
+                  <p>Пользователи</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="{{ route('admin.posts.index') }}" class="nav-link">
                   <i class="nav-icon fa-solid fa-clipboard"></i>
                   <p>Посты</p>
