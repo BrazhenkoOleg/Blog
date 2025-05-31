@@ -51,18 +51,22 @@
                         <th scope="row">Название</td>
                         <td>{{ $post->title }}</td>
                     </tr>
+                    @isset($post->preview_image)
                     <tr>
                         <th scope="row">Превью</td>
                         <td>
                             <img src="{{ url('storage/'.$post->preview_image) }}" class="w-25" alt="preview_image">
                         </td>
                     </tr>
+                    @endisset
+                    @isset($post->main_image)
                     <tr>
                         <th scope="row">Главное изображение</td>
                         <td>
                             <img src="{{ url('storage/'.$post->main_image) }}" class="w-25" alt="main_image">
                         </td>
                     </tr>
+                    @endisset
                     <tr>
                         <th scope="row">Содержание</td>
                         <td>{!! $post->content !!}</td>
