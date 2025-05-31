@@ -34,21 +34,49 @@
                 <div class="mb-3">
                     <input type="text" name="title" class="form-control" placeholder="Название поста" value="{{ old('title') }}">
                     @error('title')
-                        <div class="text-danger">Это поле необходимо для заполнения</div>
+                        <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Добавить превью</label>
                     <input name="preview_image" class="form-control" type="file">
+                    @error('preview_image')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Добавить главное изображение</label>
                     <input name="main_image" class="form-control" type="file">
+                    @error('main_image')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <textarea id="summernote" name="content">{{ old('content') }}</textarea>
                     @error('content')
-                        <div class="text-danger">Это поле необходимо для заполнения</div>
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Выберите категорию</label>
+                    <select name="category_id" class="form-select" aria-label="Выберите категорию">
+                        @foreach ($categories as $category)
+                            <option value="{{ $category->id }}" {{ $category->id == old('category_id') ? 'selected' : ''}}>{{ $category->title }}</option>
+                        @endforeach
+                    </select>
+                    @error('category_id')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Тэги</label>
+                    <select name="tag_ids[]" class="select2" multiple="multiple" data-placeholder="Выберите тэги" style="width: 100%;">
+                        @foreach ($tags as $tag)
+                            <option {{ is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? 'selected' : '' }} value="{{ $tag->id }}">{{ $tag->title }}</option>
+                        @endforeach
+                    </select>
+                    @error('tag_ids')
+                        <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <div class="mb-3">

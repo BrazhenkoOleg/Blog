@@ -35,7 +35,7 @@
                 <div class="mb-3">
                     <input type="text" name="title" class="form-control" placeholder="Название тэга" value="{{ $tag->title }}">
                     @error('title')
-                        <div class="text-danger">Это поле необходимо для заполнения</div>
+                        <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
                 <button type="submit" class="btn btn-primary">Изменить</button>

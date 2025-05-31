@@ -43,14 +43,44 @@
                 <thead>
                     <tr>
                     <th scope="col">#</th>
-                    <td scope="col">{{ $post->id }}</td>
+                    <td scope="col">{{ $post->id }}</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">Название</th>
+                        <th scope="row">Название</td>
                         <td>{{ $post->title }}</td>
-                        </tr>
+                    </tr>
+                    <tr>
+                        <th scope="row">Превью</td>
+                        <td>
+                            <img src="{{ url('storage/'.$post->preview_image) }}" class="w-25" alt="preview_image">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Главное изображение</td>
+                        <td>
+                            <img src="{{ url('storage/'.$post->main_image) }}" class="w-25" alt="main_image">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Содержание</td>
+                        <td>{!! $post->content !!}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Категория</td>
+                        <td> {{ $post->category->title }}</td>
+                    </tr>
+                    @if($post->tags->isNotEmpty())
+                    <tr>
+                        <th scope="row">Тэги</th>
+                        <td>
+                            @foreach($post->tags as $tag)
+                                <span class="badge bg-primary">{{ $tag->title }}</span>
+                            @endforeach
+                        </td>
+                    </tr>
+                    @endif
                 </tbody>
             </table>
         </div>
