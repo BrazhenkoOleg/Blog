@@ -44,12 +44,6 @@
                     @enderror
                 </div>
                 <div class="mb-3">
-                    <input type="text" name="password" class="form-control" placeholder="Пароль">
-                    @error('password')
-                        <div class="text-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-                <div class="mb-3">
                     <label class="form-label">Выберите права</label>
                     <select name="role" class="form-select" aria-label="Выберите права">
                         @foreach ($roles as $role_id=>$role_value)
