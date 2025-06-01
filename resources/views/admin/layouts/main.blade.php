@@ -77,6 +77,14 @@
               </a>
             </li>
           </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="btn btn-outline-primary">Выйти</button>
+              </form>
+            </li>
+          </ul>
           <!--end::Start Navbar Links-->
         </div>
         <!--end::Container-->

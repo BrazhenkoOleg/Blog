@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::namespace('App\Http\Controllers\Main')->group(function () {
     Route::get('/', 'IndexController')->name('main.index');
 });
 
-Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->group(function () {
+Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::namespace('Main')->group(function () {
         Route::get('/', 'IndexController')->name('admin.main.index');
     });
@@ -53,4 +54,4 @@ Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->group(function 
 
 });
 
-//Auth::routes();
+Auth::routes();

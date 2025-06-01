@@ -49,6 +49,17 @@
                         <div class="text-danger">{{ $message }}</div>
                     @enderror
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">Выберите права</label>
+                    <select name="role" class="form-select" aria-label="Выберите права">
+                        @foreach ($roles as $role_id=>$role_value)
+                            <option value="{{ $role_id }}" {{ $role_id == old('role_id') ? 'selected' : ''}}>{{ $role_value }}</option>
+                        @endforeach
+                    </select>
+                    @error('role')
+                        <div class="text-danger">{{ $message }}</div>
+                    @enderror
+                </div>
                 <button type="submit" class="btn btn-primary">Добавить</button>
             </form>
         </div>
