@@ -7,6 +7,22 @@ Route::namespace('App\Http\Controllers\Main')->group(function () {
     Route::get('/', 'IndexController')->name('main.index');
 });
 
+Route::namespace('App\Http\Controllers\Personal')->prefix('personal')->middleware(['auth', 'verified'])->group(function () {
+    Route::namespace('Main')->group(function () {
+        Route::get('/', 'IndexController')->name('personal.main.index');
+    });
+    Route::namespace('Liked')->prefix('liked')->group(function () {
+        Route::get('/', 'IndexController')->name('personal.liked.index');
+        Route::delete('/{post}', 'DestroyController')->name('personal.liked.destroy');
+    });
+    Route::namespace('Comment')->prefix('comments')->group(function () {
+        Route::get('/', 'IndexController')->name('personal.comments.index');
+        Route::get('/{comment}/edit', 'EditController')->name('personal.comments.edit');
+        Route::patch('/{comment}', 'UpdateController')->name('personal.comments.update');
+        Route::delete('/{comment}', 'DestroyController')->name('personal.comments.destroy');
+    });
+});
+
 Route::namespace('App\Http\Controllers\Admin')->prefix('admin')->middleware(['auth', 'admin', 'verified'])->group(function () {
     Route::namespace('Main')->group(function () {
         Route::get('/', 'IndexController')->name('admin.main.index');

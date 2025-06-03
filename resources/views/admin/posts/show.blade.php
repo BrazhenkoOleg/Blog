@@ -55,7 +55,7 @@
                     <tr>
                         <th scope="row">Превью</td>
                         <td>
-                            <img src="{{ url('storage/'.$post->preview_image) }}" class="w-25" alt="preview_image">
+                            <img src="{{ Storage::url($post->preview_image) }}" class="w-25" alt="preview_image">
                         </td>
                     </tr>
                     @endisset
@@ -63,7 +63,7 @@
                     <tr>
                         <th scope="row">Главное изображение</td>
                         <td>
-                            <img src="{{ url('storage/'.$post->main_image) }}" class="w-25" alt="main_image">
+                            <img src="{{ Storage::url($post->main_image) }}" class="w-25" alt="main_image">
                         </td>
                     </tr>
                     @endisset

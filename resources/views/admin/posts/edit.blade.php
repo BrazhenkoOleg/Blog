@@ -41,7 +41,7 @@
                 <div class="mb-3">
                     <label class="form-label">Обновить превью</label>
                     <div class="mb-3">
-                        <img src="{{ url('storage/'.$post->preview_image) }}" class="w-100" alt="preview_image">
+                        <img src="{{ Storage::url($post->preview_image) }}" class="w-100" alt="preview_image">
                     </div>
                     <input name="preview_image" class="form-control" type="file">
                     @error('preview_image')
@@ -51,7 +51,7 @@
                 <div class="mb-3">
                     <label class="form-label">Обновить главное изображение</label>
                     <div class="mb-3">
-                        <img src="{{ url('storage/'.$post->main_image) }}" class="w-100" alt="main_image">
+                        <img src="{{ Storage::url($post->main_image) }}" class="w-100" alt="main_image">
                     </div>
                     <input name="main_image" class="form-control" type="file">
                     @error('main_image')
