@@ -26,6 +26,9 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ route('main.index') }}">Блог <span class="sr-only">(current)</span></a>
                         </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('categories.index') }}">Категории <span class="sr-only">(current)</span></a>
+                        </li>
                         <li class="nav-item">
                             @auth()
                                 <a class="nav-link" href="{{ route('personal.main.index') }}">Личный кабинет <span class="sr-only">(current)</span></a>
@@ -42,6 +45,13 @@
 
     @yield('content')
 
+    <section class="edica-footer-banner-section pt-5">
+        <div class="container">
+            <div class="footer-banner border-0 bg-transparent" data-aos="fade-up">
+                
+            </div>
+        </div>
+    </section>
     <footer class="edica-footer" data-aos="fade-up">
         <div class="container">
             <div class="row footer-widget-area">

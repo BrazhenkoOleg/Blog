@@ -18,6 +18,13 @@ Route::namespace('App\Http\Controllers\Post')->prefix('posts')->group(function (
     });
 });
 
+Route::namespace('App\Http\Controllers\Category')->prefix('categories')->group(function () {
+    Route::get('/', 'IndexController')->name('categories.index');
+    Route::namespace('Post')->prefix('{category}/posts')->group(function () {
+        Route::get('/', 'IndexController')->name('categories.posts.index');
+    });
+});
+
 Route::namespace('App\Http\Controllers\Personal')->prefix('personal')->middleware(['auth', 'verified'])->group(function () {
     Route::namespace('Main')->group(function () {
         Route::get('/', 'IndexController')->name('personal.main.index');

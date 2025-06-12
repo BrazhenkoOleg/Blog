@@ -67,7 +67,7 @@
                     @endforeach
                 </section>
                 @auth()
-                    <section class="comment-section pb-5">
+                    <section class="comment-section">
                         <h2 class="section-title mb-5" data-aos="fade-up">Добавить комментарий</h2>
                         <form action="{{ route('posts.comment.store', $post->id) }}" method="POST">
                             @csrf
@@ -90,11 +90,4 @@
         </div>
     </div>
 </main>
-<section class="edica-footer-banner-section pt-5">
-    <div class="container">
-        <div class="footer-banner border-0 bg-transparent" data-aos="fade-up">
-            
-        </div>
-    </div>
-</section>
 @endsection

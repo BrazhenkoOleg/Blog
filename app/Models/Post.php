@@ -13,6 +13,7 @@ class Post extends Model
     protected $table = 'posts';
     protected $guarded = false;
     protected $withCount = ['likedUsers'];
+    protected $with = ['category'];
 
     public function category() {
         return $this->belongsTo(Category::class, 'category_id', 'id');
