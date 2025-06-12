@@ -7,6 +7,14 @@ Route::namespace('App\Http\Controllers\Main')->group(function () {
     Route::get('/', 'IndexController')->name('main.index');
 });
 
+Route::namespace('App\Http\Controllers\Post')->prefix('posts')->group(function () {
+    Route::get('/', 'IndexController')->name('posts.index');
+    Route::get('/{post}', 'ShowController')->name('posts.show');
+    Route::namespace('Comment')->prefix('{post}/comments')->group(function () {
+        Route::post('/', 'StoreController')->name('posts.comment.store');
+    });
+});
+
 Route::namespace('App\Http\Controllers\Personal')->prefix('personal')->middleware(['auth', 'verified'])->group(function () {
     Route::namespace('Main')->group(function () {
         Route::get('/', 'IndexController')->name('personal.main.index');

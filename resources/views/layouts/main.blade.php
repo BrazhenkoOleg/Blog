@@ -26,6 +26,14 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ route('main.index') }}">Блог <span class="sr-only">(current)</span></a>
                         </li>
+                        <li class="nav-item">
+                            @auth()
+                                <a class="nav-link" href="{{ route('personal.main.index') }}">Личный кабинет <span class="sr-only">(current)</span></a>
+                            @endauth
+                            @guest()
+                                <a class="nav-link" href="{{ route('personal.main.index') }}">Войти <span class="sr-only">(current)</span></a>
+                            @endguest
+                        </li>
                     </ul>
                 </div>
             </nav>
