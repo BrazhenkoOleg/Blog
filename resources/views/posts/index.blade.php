@@ -11,7 +11,26 @@
                             <div class="blog-post-thumbnail-wrapper">
                                 <img src="{{ Storage::url($post->preview_image) }}" alt="blog post">
                             </div>
-                            <p class="blog-post-category">{{ $post->category->title }}</p>
+                            <div class="d-flex justify-content-between">
+                                <p class="blog-post-category">{{ $post->category->title }}</p>
+                                @auth()
+                                    <form action="{{ route('posts.likes.store', $post->id) }}" method="POST">
+                                        @csrf
+                                        <span>{{ $post->liked_users_count }}</span>
+                                        <button type="submit" class="border-0 bg-transparent">
+                                            <i class="fa-{{ auth()->user()->likedPosts->contains($post->id) ? 'solid' : 'regular'}} fa-heart"></i>
+                                        </button>
+                                    </form>
+                                @endauth
+                                @guest()
+                                    <div>
+                                        <span>
+                                            {{ $post->liked_users_count }}
+                                        </span>
+                                        <i class="fa-regular fa-heart"></i>
+                                    </div>
+                                @endguest
+                            </div>
                             <a href="{{ route('posts.show', $post->id) }}" class="blog-post-permalink">
                                 <h6 class="blog-post-title">{{ $post->title }}</h6>
                             </a>

@@ -13,6 +13,9 @@ Route::namespace('App\Http\Controllers\Post')->prefix('posts')->group(function (
     Route::namespace('Comment')->prefix('{post}/comments')->group(function () {
         Route::post('/', 'StoreController')->name('posts.comment.store');
     });
+    Route::namespace('Like')->prefix('{post}/likes')->group(function () {
+        Route::post('/', 'StoreController')->name('posts.likes.store');
+    });
 });
 
 Route::namespace('App\Http\Controllers\Personal')->prefix('personal')->middleware(['auth', 'verified'])->group(function () {
